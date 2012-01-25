@@ -1,0 +1,9 @@
+---
+layout: default
+---
+<h1><%=@document.title%></h1>
+<div><%-@content%></div>
+
+<% for document in @documents: %>
+        <a href="<%= document.url %>"><%= document.title %></a><br/>
+<% end %>
