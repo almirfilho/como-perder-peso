@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="pt-BR">
+
+    <head>
+
+        <meta charset="utf-8"/>
+        <title>Como perder peso (no browser)</title>
+
+        <!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+        <link rel="stylesheet" media="all" href="css/style.css" />
+        <link rel="stylesheet" media="all" href="css/monokai.css" />
+
+        <!-- <meta name="viewport" content="width=device-width, initial-scale=1" /> -->
+
+        <!-- Fonts -->
+        <link href="http://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet" type="text/css">
+        <link href="http://fonts.googleapis.com/css?family=Magra" rel="stylesheet" type="text/css">
+
+    </head>
+
+    <body data-spy="scroll">
+
+        <div id="main">
+
+            <a id="github" href="http://github.com/zenorocha/como-perder-peso/">
+                <img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png" alt="Fork me on GitHub">
+            </a>
+
+            <h3>O guia definitivo de performance para o desenvolvedor front-end</h3>
+
+            <header class="intro">
+
+                <h1>Como perder <span class="peso">peso</span></h1>
+                <h2>no browser</h2>
+
+                <img src="img/superman.png" alt="Superman" class="superman" />
+
+            </header>
+
+            <section id="content">
+
+                
+                    <article id="index">
+                      <h1>Introdução</h1>
+                      <div class="linha"><span class="bola">0</span></div>
+                      <p>E se juntássemos os melhores profissionais que trabalham nos maiores portais do país para criar o guia definitivo de performance para front-end?</p>
+
+                    </article>
+          
+                    <article id="css-combine">
+                      <h1>Combine todos os arquivos CSS em um só</h1>
+                      <div class="linha"><span class="bola">1</span></div>
+                      <p>Quanto menos arquivos para carregar, menos requisições HTTP e consequentemente mais velocidade. Por isso combine todos seus arquivos CSS em um só. Isso não quer dizer que você deva deixar seu CSS todo desorganizado. Você pode continuar com seu ciclo normal de desenvolvimento contendo folhas de estilo diferentes para cada modelo de página. Mas lembre-se de combinar todos eles antes de colocar isso no ar.
+
+</p>
+<p><code>Referência:</code> <a href="http://code.google.com/speed/page-speed/docs/rtt.html#CombineExternalCSS">Google Speed</a></p>
+
+                    </article>
+          
+                    <article id="css-head">
+                      <h1>Coloque o CSS no &lt;head&gt;</h1>
+                      <div class="linha"><span class="bola">2</span></div>
+                      <p>Mova os estilos inline e elementos <link> do <body> para o <head>. Navegadores bloqueiam a renderização da página até que todos os estilos externos tenham sido baixados. Por isso garanta que eles serão carregados e parseados antes, para o navegador renderizar a página progressivamente.
+
+</p>
+<p><code>Referência:</code> <a href="http://code.google.com/speed/page-speed/docs/rendering.html#PutCSSInHead">Google Speed</a></p>
+
+                    </article>
+          
+                    <article id="css-link">
+                      <h1>Prefira &lt;link&gt; ao invés de @import</h1>
+                      <div class="linha"><span class="bola">3</span></div>
+                      <p>Com @import você pode importar um arquivo CSS dentro do outro. Isso é bem útil em alguns casos, porém ao utilizar ele em um CSS externo, o navegador não permite realizar o download dos CSS em paralelo. Suponha que você tenha o principal.css e dentro dele faça:
+
+</p>
+<pre class="highlighted"><code class="css">  <span class="at_rule">@<span class="keyword">import</span> <span class="function">url(<span class="string">"secundario.css"</span>)</span></code></pre>
+<p>O navegador irá fazer o download, parsear e executar principal.css antes de descobrir que precisa fazer isso também com o outro.css,
+
+</p>
+<p>Por isso utilize <link>, assim você pode realizar o download em paralelo, resultando em um carregamento mais rápido da página.
+
+</p>
+<pre class="highlighted"><code class="xml">  <span class="tag">&lt;<span class="title">link</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">href</span>=<span class="value">"principal.css"</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">link</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">href</span>=<span class="value">"secundario.css"</span>&gt;</span></code></pre>
+<p><code>Referência:</code> <a href="http://code.google.com/speed/page-speed/docs/rtt.html#AvoidCssImport">Google Speed</a></p>
+
+                    </article>
+          
+                    <article id="minifique-seu-css">
+                      <h1>Minifique seu CSS</h1>
+                      <div class="linha"><span class="bola">5</span></div>
+                      <p>Você não precisa de todos aqueles espaços ou quebras de linhas no seu código quando ele está online. Lembre-se que quanto menor o arquivo, mais rápido ele carregará, portanto assegure-se de minificar seu CSS, assim todos esses caracteres extras serão removidos e seu CSS ficará ilegível para humanos, porém exatamente igual para máquina.</p>
+
+                    </article>
+          
+                    <article id="combine-imagens-usando-css-sprites">
+                      <h1>Combine imagens utilizando CSS Sprites</h1>
+                      <div class="linha"><span class="bola">6</span></div>
+                      <p>A técnica mais famosa para reduzir o número de requisições para imagens é através de CSS Sprites. A técnica consiste em atribuir todas as imagens do site em uma só, e depois basta posicioná-las no CSS com <code>background-position</code>. Assim dimuimos o número de requisições e permitimos um maior número de downloads em paralelo.
+
+</p>
+<p><img src="http://www.google.com/images/nav_logo83.png" alt="image">
+
+</p>
+<p>Dica: <a href="http://www.spritecow.com/">Sprite Cow</a>
+
+</p>
+<p><code>Referência:</code> <a href="http://code.google.com/speed/page-speed/docs/rtt.html#SpriteImages">Google Speed</a></p>
+
+                    </article>
+          
+                    <article id="async-e-defer">
+                      <h1>async &amp; defer</h1>
+                      <div class="linha"><span class="bola">7</span></div>
+                      <p>São atributos que devem ser usados em conjunto com a tag <code>script</code>
+
+</p>
+<p>Para explicar como esses atributos são úteis para melhorar a performance, é melhor entender o que acontece quando não utilizamos eles.
+
+</p>
+<pre class="highlighted"><code class="xml">  <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"exemplo.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></code></pre>
+<p>Dessa forma, a página aguarda o script terminar de carregar antes de continuar sua renderização e sua execução é feita imediatamente após. Isso pode aumentar significativamente o tempo de carregamento da página.  Algumas vezes esse comportamento é desejado, outras vezes não.
+
+</p>
+<pre class="highlighted"><code class="xml"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">async</span> <span class="attribute">src</span>=<span class="value">"exemplo.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></code></pre>
+<p>O download do script é feito de forma assíncrona enquanto o processo de renderização da página continua a ser feito. O script é executado depois que o download estiver completo.
+
+</p>
+<pre class="highlighted"><code class="xml"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">defer</span> <span class="attribute">src</span>=<span class="value">"exemplo.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></code></pre>
+<p>Assim como o exemplo acima, o download do script é feito de forma assíncrona. Mas sua execução se dá apenas quando todo o processo de renderização estiver concluído.
+
+</p>
+<p><code>Referência:</code> <a href="http://code.google.com/speed/articles/html5-performance.html">Google Speed - HTML5 Performance</a> - <a href="http://blog.zenorocha.com/post/10361104170/html5-async-scripts?8d59cf40">Zeno Rocha - Async Scripts</a></p>
+
+                    </article>
+          
+                    <article id="nao-escale-imagens-no-html">
+                      <h1>Não escale imagens no HTML</h1>
+                      <div class="linha"><span class="bola">8</span></div>
+                      <p>Não use imagens maiores do que você precisa só porque você pode definir a altura e largura delas no HTML.
+
+</p>
+<pre class="highlighted"><code class="xml"><span class="tag">&lt;<span class="title">img</span> <span class="attribute">width</span>=<span class="value">"100"</span> <span class="attribute">height</span>=<span class="value">"100"</span> <span class="attribute">src</span>=<span class="value">"logo.jpg"</span> <span class="attribute">alt</span>=<span class="value">"Logo"</span> /&gt;</span></code></pre>
+<p>Se você precisa de uma imagem com 100x100px então utilize uma imagem de 100x100px ao invés de escalar uma de 500x500px.
+
+</p>
+<p><code>Referência:</code> <a href="http://developer.yahoo.com/performance/rules.html#no_scale">Yahoo Best Practices - Don&#39;t Scale Images in HTML</a></p>
+
+                    </article>
+          
+                    <article id="loop">
+                      <h1>loop</h1>
+                      <div class="linha"><span class="bola">9</span></div>
+                      <p>Um loop feito com <code>for</code> nativo será sempre mais rápido que um loop feito com <code>$.each()</code>. Ponto final.
+
+</p>
+<p>Lembre-se que o jQuery é uma biblioteca implementada em cima de funções JS, portanto qualquer coisa feita com JavaScript puro será mais rápida.
+
+</p>
+<p><code>Referência:</code> <a href="http://taitems.github.com/Front-End-Development-Guidelines/#jqueryForEachLoops">FrontEnd Development Guidelines - jQuery ForEach Loops</a></p>
+
+                    </article>
+          
+                    <article id="ultima-versao">
+                      <h1>Use sempre a última versão do jQuery</h1>
+                      <div class="linha"><span class="bola">10</span></div>
+                      <p>O time de desenvolvedores do jQuery está em constante busca de melhorias. Sendo assim, procure deixar o seu produto com a última versão da biblioteca. Pois a cada release, muitos métodos são reimplementados. Com a reescrita de alguns metodos, o jQuery Core Team, nos disponibiliza melhorias de performance, organização, suporte aos browsers e novas funções.
+
+</p>
+<p>Evite referênciar seu projeto, diretamente para última versão. Pois dessa forma, seu projeto poderá está fazendo uso de funcionalidades deprecidas que foram removidas na ultima versão.
+
+</p>
+<pre class="highlighted"><code class="xml">http://ajax.googleapis.com/ajax/libs/jquery/latest/jquery.js</code></pre>
+<p><code>Referência:</code> <a href="http://blog.jquery.com/2011/11/03/jquery-1-7-released/">Jquery Blog - JQUERY 1.7 released</a></p>
+
+                    </article>
+          
+                    <article id="Classe">
+                      <h1>Use Classe ao inves de Style</h1>
+                      <div class="linha"><span class="bola">11</span></div>
+                      <p>Prefira utilizar classes <code>class</code> do que estilos <code>styles</code>
+
+</p>
+<pre class="highlighted"><code class="javascript"><span class="comment">//Fica mais lento e mais dificil de entender</span>
+$(<span class="string">"elem"</span>).css({color: <span class="string">'red'</span>, border: <span class="string">'red'</span> });
+
+<span class="comment">//Mais rapido e mais sexy</span>
+$(<span class="string">"elem"</span>).addClass(<span class="string">'error'</span>);</code></pre>
+
+                    </article>
+          
+                    <article id="Find">
+                      <h1>Use .Find</h1>
+                      <div class="linha"><span class="bola">12</span></div>
+                      <p>Use o .find ao invés de usar contextos
+
+</p>
+<pre class="highlighted"><code class="javascript">$(<span class="string">'Item'</span>, contexto);
+
+$(contexto).find(<span class="string">'Item'</span>);</code></pre>
+
+                    </article>
+          
+
+            </section>
+
+        </div>
+
+        <aside id="menu">
+
+            <ul>
+                <li><a href="#html">HTML</a></li>
+                <li><a href="#css">CSS</a></li>
+                <li><a href="#javascript">JavaScript</a></li>
+                <li><a href="#jquery">jQuery</a></li>
+            </ul>
+
+        </aside>
+
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.0/jquery-1.8.0.min.js"></script>
+
+        <!-- <script src="js/bootstrap-scrollspy.min.js"></script> -->
+        <script src="js/jquery.viewport.js"></script>
+        <script src="js/script.js"></script>
+
+        <script>
+
+            $(function() {
+                var app = new COMOPERDERPESO.app();
+                app.init();
+        });
+
+        </script>
+
+    </body>
+
+</html>

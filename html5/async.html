@@ -1,0 +1,19 @@
+<p>São atributos que devem ser usados em conjunto com a tag <code>script</code>
+
+</p>
+<p>Para explicar como esses atributos são úteis para melhorar a performance, é melhor entender o que acontece quando não utilizamos eles.
+
+</p>
+<pre class="highlighted"><code class="xml">  <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"exemplo.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></code></pre>
+<p>Dessa forma, a página aguarda o script terminar de carregar antes de continuar sua renderização e sua execução é feita imediatamente após. Isso pode aumentar significativamente o tempo de carregamento da página.  Algumas vezes esse comportamento é desejado, outras vezes não.
+
+</p>
+<pre class="highlighted"><code class="xml"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">async</span> <span class="attribute">src</span>=<span class="value">"exemplo.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></code></pre>
+<p>O download do script é feito de forma assíncrona enquanto o processo de renderização da página continua a ser feito. O script é executado depois que o download estiver completo.
+
+</p>
+<pre class="highlighted"><code class="xml"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">defer</span> <span class="attribute">src</span>=<span class="value">"exemplo.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></code></pre>
+<p>Assim como o exemplo acima, o download do script é feito de forma assíncrona. Mas sua execução se dá apenas quando todo o processo de renderização estiver concluído.
+
+</p>
+<p><code>Referência:</code> <a href="http://code.google.com/speed/articles/html5-performance.html">Google Speed - HTML5 Performance</a> - <a href="http://blog.zenorocha.com/post/10361104170/html5-async-scripts?8d59cf40">Zeno Rocha - Async Scripts</a></p>

@@ -1,0 +1,13 @@
+<p>Com @import você pode importar um arquivo CSS dentro do outro. Isso é bem útil em alguns casos, porém ao utilizar ele em um CSS externo, o navegador não permite realizar o download dos CSS em paralelo. Suponha que você tenha o principal.css e dentro dele faça:
+
+</p>
+<pre class="highlighted"><code class="css">  <span class="at_rule">@<span class="keyword">import</span> <span class="function">url(<span class="string">"secundario.css"</span>)</span></code></pre>
+<p>O navegador irá fazer o download, parsear e executar principal.css antes de descobrir que precisa fazer isso também com o outro.css,
+
+</p>
+<p>Por isso utilize <link>, assim você pode realizar o download em paralelo, resultando em um carregamento mais rápido da página.
+
+</p>
+<pre class="highlighted"><code class="xml">  <span class="tag">&lt;<span class="title">link</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">href</span>=<span class="value">"principal.css"</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">link</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">href</span>=<span class="value">"secundario.css"</span>&gt;</span></code></pre>
+<p><code>Referência:</code> <a href="http://code.google.com/speed/page-speed/docs/rtt.html#AvoidCssImport">Google Speed</a></p>
